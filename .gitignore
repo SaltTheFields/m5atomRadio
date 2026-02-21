@@ -1,0 +1,13 @@
+# Arduino-specific
+build/
+*.elf
+*.hex
+*.bin
+
+# Project secrets
+secrets.h
+
+# OS generated files
+.DS_Store
+Thumbs.db
+.gemini/
