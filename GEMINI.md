@@ -7,39 +7,26 @@ This project is an ESP32-based internet radio receiver designed for the **M5Stac
 - **Language:** C++ (Arduino IDE compatible).
 - **Core Libraries:**
   - `WiFi.h`: For wireless connectivity.
-  - `Audio.h` ([ESP32-audioI2S](https://github.com/schreibfaul1/ESP32-audioI2S)): Handles stream decoding (MP3, OGG, AAC) and I2S output.
+  - `Audio.h` ([ESP32-audioI2S](https://github.com/schreibfaul1/ESP32-audioI2S)): Handles stream decoding (MP3) and I2S output.
   - `Adafruit_NeoPixel`: Manages the onboard RGB LED for status and visual feedback.
 
 ## Key Features
-- **Station Selection:** Cycles through a curated list of stations, including genuine **Fallout game radio streams** (Galaxy News, Diamond City, Radio New Vegas), Austin locals, and post-punk.
+- **Station Selection:** Cycles through a curated list of reliable non-commercial stations (KEXP, SomaFM, KUT, etc.) using the main button.
 - **Visual Feedback:** The NeoPixel LED changes color based on the selected station and pulses during playback.
-- **I2S Audio:** Direct digital audio output configured for the Atom Echo's hardware.
+- **Secrets Management:** Credentials handled via `secrets.h`.
 
 ## Building and Running
 
 ### Prerequisites
-1.  **Arduino IDE** or **PlatformIO**.
-2.  **ESP32 Board Support:** Install the ESP32 core in your development environment.
-3.  **Required Libraries:**
-    - `ESP32-audioI2S`
+1. **Arduino CLI** or IDE.
+2. **ESP32 Core:** v2.0.17 (Stable for I2S).
+3. **Libraries:**
+    - `ESP32-audioI2S-master` (v2.0.0)
     - `Adafruit_NeoPixel`
 
 ### Setup
-1.  Open `m5atomRadio.ino`.
-2.  Update the `ssid` and `password` variables with your WiFi credentials.
-3.  Select the **M5Stack-Atom** or **ESP32 Dev Module** as the target board.
-4.  Compile and upload the sketch to your M5Stack Atom Echo.
-
-### Usage
-- **Single Press:** Cycles to the next radio station.
-- **Volume:** Set to **21 (Maximum)** by default.
-- **LED Indicators:**
-  - **White (Blinking):** Connecting to WiFi.
-  - **Cyan:** Galaxy News Radio (Fallout 3).
-  - **Magenta:** Diamond City Radio (Fallout 4).
-  - **Amber:** Radio New Vegas.
-  - **Yellow:** Fallout (Post-Punk).
-  - **Blue/Red/Green:** Austin Locals & KEXP.
+1. Create `secrets.h` from `secrets.h.example`.
+2. Compile and upload using the `m5stack-atom` FQBN.
 
 ## Hardware Pinout (M5Stack Atom Echo)
 | Function | Pin |
